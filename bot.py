@@ -35,13 +35,13 @@ def info(update,context):
     user = update.message.from_user
     update.message.reply_text('You are the user {} and your user ID: {} '.format(user['username'], user['id']))
 
-def echo(update, context):
+def reply(update, context):
     text = update.message.text
     #update.message.reply_text(update.message.text)
     #update.message.reply_photo(photo='https://telegram.org/img/t_logo.png') # replay to bot
     # update.message.reply_photo(open("downloand.png","rb"))
     user = update.message.from_user
-    print(from_user)
+    print(user)
     
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -62,8 +62,8 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("info", info))
 
-    # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    # on noncommand i.e message - reply the message on Telegram
+    dp.add_handler(MessageHandler(Filters.text, reply))
 
     # log all errors
     dp.add_error_handler(error)
