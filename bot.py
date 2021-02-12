@@ -40,7 +40,8 @@ def echo(update, context):
     #update.message.reply_text(update.message.text)
     #update.message.reply_photo(photo='https://telegram.org/img/t_logo.png') # replay to bot
     # update.message.reply_photo(open("downloand.png","rb"))
-
+    user = update.message.from_user
+    print(from_user)
     
 def error(update, context):
     """Log Errors caused by Updates."""
