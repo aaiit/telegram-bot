@@ -85,6 +85,8 @@ def transformer(vocab_size,
   return tf.keras.Model(inputs=[inputs, dec_inputs], outputs=outputs, name=name)
 
 def evaluate(sentence):
+  START_TOKEN, END_TOKEN = [8169], [8170]
+
   sentence = preprocess_sentence(sentence)
   sentence = tf.expand_dims(
       START_TOKEN + tokenizer.encode(sentence) + END_TOKEN, axis=0)
