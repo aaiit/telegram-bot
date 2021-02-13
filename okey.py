@@ -11,7 +11,7 @@ import tensorflow_datasets as tfds
 
 import os
 import re
-import pickle
+import pickle,gzip
 # import numpy as np
 
 # import matplotlib.pyplot as plt
@@ -40,7 +40,7 @@ def preprocess_sentence(sentence):
 
 ###################
 
-with open('Bot/tokenizer.pkl', 'rb') as handle:
+with gzip.open('Bot/tokenizer.pkl', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 # tfds.features.text.SubwordTextEncoder.build_from_corpus(
