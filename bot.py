@@ -9,7 +9,7 @@ curl -o Bot/saved_model.data-00000-of-00001  https://firebasestorage.googleapis.
 
 curl -o Bot/saved_model.index  https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Fsaved_model.index?alt=media&token=ok  ;
 
-curl -o Bot/tokenizer https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Ftokenizer.pkl?alt=media&token=ok
+curl -o Bot/tokenizer.pkl https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Ftokenizer.pkl?alt=media&token=ok
 
 """)
 from okey import predict
