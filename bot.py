@@ -12,7 +12,8 @@ curl -o Bot/saved_model.index  https://firebasestorage.googleapis.com/v0/b/scrap
 curl -o Bot/tokenizer.pkl https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Ftokenizer.pkl?alt=media&token=ok
 
 """)
-from okey import predict
+
+from model import predict
 
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
