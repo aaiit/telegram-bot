@@ -1,0 +1,6 @@
+--2021-02-14 14:55:49--  https://api.telegram.org/bot1679902226:AAG1jLPLeCa9Pfb_5-9VvYt0lBrJUh0moQQ/sendMessage?chat_id=1519952887
+Resolving api.telegram.org (api.telegram.org)... 149.154.167.220, 2001:67c:4e8:f004::9
+Connecting to api.telegram.org (api.telegram.org)|149.154.167.220|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2021-02-14 14:55:49 ERROR 400: Bad Request.
+
