@@ -23,9 +23,11 @@ A new window will be opened in your browser prompting you to login, so just clic
 
 to create your new webapp. Heroku will assign your webapp a name as well as the link to your webapp, which should be of the format [https://{yourherokuappname}.herokuapp.com/.](https://yourherokuappname.herokuapp.com/.) 
 
-7. To the bot.py file, change the TOKEN variable to the API token of your telegram bot, and change the yourherokuappname to the name of your heroku app in the line
+7. Add the envirement variables
 
-> updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/'  + TOKEN)
+> heroku config:set URL_MODEL="https://raw.githubusercontent.com/aaiit/aaiit.github.io/master/files/Bot_Model.zip"
+
+> heroku config:set WEB_URL="ttps://yourherokuappname.herokuapp.com/"
 
 8. Next, in your command line, type the following commands in the following order:
 
@@ -59,27 +61,5 @@ You should see again see the messages about a Python app being detected and once
 
 
 
-pip install google-api-python-client -t app/lib
 
 
-from lib.apiclient import discovery
-
-
-file_id = '1-AosBKix6Sr4UQFCZIf3bhYhAwHm5ccA'
-request = drive_service.files().get_media(fileId=file_id)
-fh = io.BytesIO()
-downloader = MediaIoBaseDownload(fh, request)
-done = False
-while done is False:
-    status, done = downloader.next_chunk()
-    print ("Download %d%%." % int(status.progress() * 100))
-
-
-
-mkdir Bot;
-
-curl -o Bot/checkpoint  https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Fcheckpoint?alt=media&token=ok  ;
-
-curl -o Bot/saved_model.data-00000-of-00001  https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Fsaved_model.data-00000-of-00001?alt=media&token=ok ;
-
-curl -o Bot/saved_model.index  https://firebasestorage.googleapis.com/v0/b/scrapping-9c4c2.appspot.com/o/Bot%2Fsaved_model.index?alt=media&token=ok  ;
