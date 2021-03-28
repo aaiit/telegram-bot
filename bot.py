@@ -1,19 +1,16 @@
 import os
 
-# url_model = os.environ.get('URL_MODEL', None)
 TOKEN =  os.environ.get('TELEGRAM_TOKEN', None)
-web_url = os.environ.get('WEB_URL', None) # https://calm-sea.herokuapp.com/
+web_url = os.environ.get('WEB_URL', None) 
 
 
-# os.system("""
-#     until $(curl -o Bot_Model.zip  %s); do
-#     printf '.'
-#     sleep 0.5
-# done"""%(url_model))
-# os.system("unzip Bot_Model.zip")
+os.system("gdown $checkpoint")
+os.system("gdown $saved_model_data")
+os.system("gdown $tokenizer_pkl")
+os.system("gdown $saved_model_index")
 
 
-# from model import predict
+from model import predict
 
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -51,7 +48,7 @@ def reply(update, context):
     # update.message.reply_photo(open("downloand.png","rb"))
     # user = update.message.from_user
     # print(user)
-    # update.message.reply_text(text)
+    update.message.reply_text(predict(text))
     
 def error(update, context):
     """Log Errors caused by Updates."""
