@@ -1,46 +1,24 @@
-# pip install tensorflow==2
-# pip install tensorflow-datasets==1.2.0
-
 import tensorflow as tf
-# import pandas as pd
-# assert tf.__version__.startswith('2')
 tf.random.set_seed(1234)
-
-# !pip install tensorflow-datasets==1.2.0
 import tensorflow_datasets as tfds
-
 import os
 import re
 import pickle,gzip
-# import numpy as np
-
-# import matplotlib.pyplot as plt
 
 
 def preprocess_sentence(sentence):
   sentence = sentence.lower().strip()
   # creating a space between a word and the punctuation following it
-  # eg: "he is a boy." => "he is a boy ."
   sentence = re.sub(r"([?.!,])", r" \1 ", sentence)
   sentence = re.sub(r'[" "]+', " ", sentence)
-  # # replacing everything with space except (a-z, A-Z, ".", "?", "!", ",")
-  # sentence = re.sub(r"[^a-zA-Z?.!,]+", " ", sentence)
+  # replacing everything with space except (a-z, A-Z, ".", "?", "!", ",")
+  sentence = re.sub(r"[^a-zA-Z?.!éèâêîôûäëïöüàææçéèœœù,]+", " ", sentence)
   # adding a start and an end token to the sentence
-  sentence = sentence.strip()
   return sentence
 
-# data =pd.read_csv("datasets/full_dataset.csv")
-# data= data.sample(frac=1)
-
-# questions = data.Question
-# answers = data.Answer
-# print('Sample question: {}'.format(questions[10]))
-# print('Sample answer: {}'.format(answers[10]))
 
 
-###################
-
-with gzip.open('Bot_Model/tokenizer.pkl', 'rb') as handle:
+with gzip.open('tokenizer.pkl', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 # tfds.features.text.SubwordTextEncoder.build_from_corpus(
@@ -62,7 +40,7 @@ VOCAB_SIZE = tokenizer.vocab_size + 2
 
 
 # Maximum sentence length
-MAX_LENGTH = 40
+MAX_LENGTH = 50
 
 
 # Tokenize, filter and pad sentences
@@ -520,6 +498,6 @@ def predict(sentence):
 
 
 
-model.load_weights("Bot_Model/saved_model")
+model.load_weights("saved_model")
 
 
